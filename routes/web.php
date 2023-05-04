@@ -23,3 +23,4 @@ Route::get('blog/{slug}', function($slug){
 Route::get('buscar', function(Request $request){
     return $request->all();
 });
+// este comentario es desde el celular
