@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
 Route::get    Consultar
@@ -16,6 +16,10 @@ Route::get('blog', function(){
 });
 
 Route::get('blog/{slug}', function($slug){
-    //consulta a base de datos 
+    //simulamos una consulta a base de datos 
     return $slug;
+});
+
+Route::get('buscar', function(Request $request){
+    return $request->all();
 });
