@@ -41,11 +41,8 @@ Route::get('blog/{slug}', function($slug){
 });
 
 /*
- -Define a route that handles a GET request to the "/buscar" URL and takes a Request object as a parameter
+ Define a route that handles a GET request to the "/buscar" URL and takes a Request object as a parameter
 Route::get'buscar', functionRequest $request
-    -Return all of the data in the Request object as a response
-    return $request->all;
-
+    Return all of the data in the Request object as a response
+    return $request->all
 */
-
-
