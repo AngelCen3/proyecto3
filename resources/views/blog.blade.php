@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado</title>
     @foreach($posts as $post)
+     <!--este es un ciclo for -->
         <p><strong>{{$post['id']}} </strong>
         <a href="">
             {{$post['title']}}
