@@ -19,7 +19,9 @@ Route::put    // Define a route that handles PUT requests
 Route::get('/', function () {
     // Return a view called "home" when this route is requested
     return view('home');
-});
+
+    //ahora le damos un nombre a cada ruta y esto lo hacemos para hacer funcionar los botones ->name('home')
+})->name('home');
 
 // Define a route that handles a GET request to the "/blog" URL
 Route::get('blog', function(){
@@ -30,7 +32,7 @@ Route::get('blog', function(){
     ];
     // Return a view called "blog" and pass in the posts array as a parameter
     return view('blog',['posts' => $posts]);
-});
+})->name('blog');
 
 // Define a route that handles a GET request to a URL that contains a "slug" parameter
 Route::get('blog/{slug}', function($slug){
@@ -38,7 +40,7 @@ Route::get('blog/{slug}', function($slug){
     $post = $slug;
     // Return a view called "post" and pass in the post variable as a parameter
     return view('post',['post'=>$post]);
-});
+})->name('post');
 
 /*
  Define a route that handles a GET request to the "/buscar" URL and takes a Request object as a parameter

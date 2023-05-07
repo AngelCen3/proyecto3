@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<!--con ayuda de laravel podemos reutilizar condigo para 
+poder realizar mantenimiento y sea mas limpio el codigo -->
+@extends('template')
+
+@section('content')
+<!--Por ejemplo aqui agregamos Home si toda la extrutura de HTML5-->
     <h1>Home</h1>
-</body>
-</html>
+@endsection
