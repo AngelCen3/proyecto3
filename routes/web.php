@@ -1,7 +1,9 @@
 <?php
-
 // Import the Request class from the Illuminate\Http namespace to handle HTTP requests
-use Illuminate\Http\Request;
+//en el archivo composer.json (App hace referencia a app)
+
+//import PageController from controllersv
+use App\Http\Controllers\PageController;
 
 // Import the Route class from the Illuminate\Support\Facades namespace to define routes
 use Illuminate\Support\Facades\Route;
@@ -16,35 +18,13 @@ Route::put    // Define a route that handles PUT requests
 */
 
 // Define a route that handles a GET request to the root URL ("/")
-Route::get('/', function () {
-    // Return a view called "home" when this route is requested
-    return view('home');
+//asi se puede escribir 
+//Route::get('/', [PageController:: class, 'home'])->name('home');
 
-    //ahora le damos un nombre a cada ruta y esto lo hacemos para hacer funcionar los botones ->name('home')
-})->name('home');
 
-// Define a route that handles a GET request to the "/blog" URL
-Route::get('blog', function(){
-    // Create an array of posts
-    $posts =[ 
-        ['id'=>1, 'title'=>'PHP', 'slug'=>'php'],
-        ['id'=>2, 'title'=>'Laravel', 'slug'=>'laravel']    
-    ];
-    // Return a view called "blog" and pass in the posts array as a parameter
-    return view('blog',['posts' => $posts]);
-})->name('blog');
+Route::controller(PageController::class)->group(function () {
 
-// Define a route that handles a GET request to a URL that contains a "slug" parameter
-Route::get('blog/{slug}', function($slug){
-    // Simulate a database query for a post that matches the "slug" parameter
-    $post = $slug;
-    // Return a view called "post" and pass in the post variable as a parameter
-    return view('post',['post'=>$post]);
-})->name('post');
-
-/*
- Define a route that handles a GET request to the "/buscar" URL and takes a Request object as a parameter
-Route::get'buscar', functionRequest $request
-    Return all of the data in the Request object as a response
-    return $request->all
-*/
+    Route::get('/', 'home')->name('home');
+    Route::get('blog', 'blog')->name('blog');
+    Route::get('blog/{slug}', 'post')->name('post');
+});
