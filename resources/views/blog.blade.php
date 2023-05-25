@@ -5,10 +5,15 @@
 
 @foreach($posts as $post)
 <!--este es un ciclo for -->
-<p><strong>{{ $post['id'] }}</strong>
+<p><strong>{{ $post-> id }}</strong>
     <a href="{{ route('post', $post['slug']) }}">
-        {{ $post['title'] }}
+        {{ $post->title }}
     </a>
+    <br>
+    <span>{{ $post->user->name }}</span>
+
 </p>
 @endforeach
+
+{{$posts -> links()}}
 @endsection

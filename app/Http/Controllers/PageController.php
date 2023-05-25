@@ -3,6 +3,7 @@
 //este es la ruta de este controlador
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,18 +15,23 @@ class PageController extends Controller
         return view('home');
         //ahora le damos un nombre a cada ruta y esto lo hacemos para hacer funcionar los botones ->name'home
     }
+
+    //listado de publicasiones
     public function blog()
     {
-        $posts = [
-            ['id' => 1, 'title' => 'PHP', 'slug' => 'php'],
-            ['id' => 2, 'title' => 'Laravel', 'slug' => 'laravel']
-        ];
+        //$posts = Post::get();
+        //$post = Post::first();
+        //$post = Post::find(25);
+        //dd($post);
+
+        $posts = Post::latest()->paginate();
+
+        //dd($posts);
 
         return view('blog', ['posts' => $posts]);
     }
-    public function post($slug)
-    { // Return a view called "blog" and pass in the posts array as a parameter
-        $post = $slug;
+    public function post(Post $post)
+    { 
         return view('post', ['post' => $post]);
     }
 }
